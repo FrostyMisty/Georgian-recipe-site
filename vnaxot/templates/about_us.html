@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% load static %}
+    <title>About Us</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+  </head>
+  <body>
+    <div class="site-header">
+      <div class="nav-center">
+        <a href="{% url 'about_us' %}">About</a>
+        <a href="{% url 'about_georgia' %}">About Georgia</a>
+        <a href="{% url 'contact_us' %}">Contact Us</a>
+      </div>
+      <form class="search-bar" method="get" action="{% url 'recipe_search' %}">
+        <input type="text" name="q" placeholder="Search recipes..." />
+        <button type="submit">&#128269;</button>
+      </form>
+    </div>
+    {% block content %}
+    <div class="aboutus-hero">
+      <h1>About Us</h1>
+      <div class="aboutus-bio">
+        <p>
+          Welcome to our recipe site! We are passionate about sharing delicious
+          recipes and culinary inspiration with the world.
+        </p>
+      </div>
+    </div>
+    {% endblock %}
+  </body>
+</html>

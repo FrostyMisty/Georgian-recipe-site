@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% load static %}
+    <title>{{ recipe.title }} - Recipe</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="recipe-header">
+        <h1>{{ recipe.title }}</h1>
+        <div class="recipe-actions">
+          <a href="{% url 'edit_recipe' recipe.pk %}">Edit</a>
+          <a href="{% url 'delete_recipe' recipe.pk %}">Delete</a>
+          <a href="{% url 'home' %}">Back to Home</a>
+        </div>
+      </div>
+      <div class="recipe-section">
+        <h2>Description</h2>
+        <p class="recipe-description">{{ recipe.description }}</p>
+      </div>
+      <div class="recipe-section">
+        <h2>Ingredients</h2>
+        <ul class="ingredients-list">
+          {% for line in recipe.ingredients.splitlines %} {% if line %}
+          <li>{{ line }}</li>
+          {% endif %} {% endfor %}
+        </ul>
+      </div>
+      <div class="recipe-section">
+        <h2>Instructions</h2>
+        <ol class="instructions-list">
+          {% for step in recipe.instructions.splitlines %} {% if step %}
+          <li>{{ step }}</li>
+          {% endif %} {% endfor %}
+        </ol>
+      </div>
+    </div>
+  </body>
+</html>

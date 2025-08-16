@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Georgian Recipes{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+  </head>
+  <body>
+    <div class="site-header">
+      <div class="logo">🍇 Georgian Recipes</div>
+      <div class="nav-center">
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'about_georgia' %}">About Georgia</a>
+        <a href="{% url 'about_us' %}">About Us</a>
+        <a href="{% url 'contact_us' %}">Contact</a>
+      </div>
+      <form class="search-bar" method="get" action="{% url 'recipe_search' %}">
+        <input type="text" name="q" placeholder="Search recipes..." />
+        <button type="submit">&#128269;</button>
+      </form>
+    </div>
+    {% block content %}{% endblock %}
+    <footer>
+      <p>© 2025 Georgian Recipes | Made with ❤️ in Tbilisi</p>
+    </footer>
+  </body>
+</html>

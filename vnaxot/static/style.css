@@ -1,0 +1,567 @@
+body {
+  background: #f4f6fb;
+  font-family: "Segoe UI", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  color: #22223b;
+  text-align: center;
+  margin-top: 0;
+  letter-spacing: 1px;
+}
+
+.container {
+  max-width: 700px;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(44, 62, 80, 0.1);
+  padding: 32px 40px;
+}
+
+a {
+  color: #3a86ff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: #ffbe0b;
+}
+
+ul.recipe-list {
+  list-style: none;
+  padding: 0;
+}
+
+ul.recipe-list li {
+  background: #f1f2f6;
+  margin-bottom: 18px;
+  padding: 18px 20px;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(44, 62, 80, 0.04);
+  display: flex;
+  flex-direction: column;
+}
+
+ul.recipe-list li strong {
+  font-size: 1.15em;
+  color: #22223b;
+}
+
+.add-btn,
+button.add-btn {
+  display: inline-block;
+  background: linear-gradient(90deg, #3a86ff 60%, #4361ee 100%);
+  color: #fff;
+  padding: 10px 22px;
+  border-radius: 6px;
+  margin-bottom: 24px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+  box-shadow: 0 2px 8px rgba(58, 134, 255, 0.1);
+}
+
+.add-btn:hover,
+button.add-btn:hover {
+  background: linear-gradient(90deg, #ffbe0b 60%, #fb5607 100%);
+  color: #22223b;
+}
+
+form input[type="text"],
+form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 16px;
+  border: 1px solid #bfc0c0;
+  border-radius: 5px;
+  font-size: 1em;
+  background: #f8f9fa;
+  transition: border 0.2s;
+}
+
+form input[type="text"]:focus,
+form textarea:focus {
+  border: 1.5px solid #3a86ff;
+  outline: none;
+}
+
+form button[type="submit"] {
+  margin-top: 10px;
+}
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #22223b;
+  padding: 18px 40px;
+  border-radius: 0 0 12px 12px;
+  margin-bottom: 32px;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-center {
+  display: flex;
+  gap: 32px;
+  margin: 0 auto;
+}
+
+.nav-center a {
+  color: #fff;
+  font-weight: 500;
+  font-size: 1.1em;
+  letter-spacing: 1px;
+  transition: color 0.2s;
+}
+
+.nav-center a:hover {
+  color: #ffbe0b;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 30px;
+  padding: 4px 14px;
+  box-shadow: 0 1px 8px rgba(44, 62, 80, 0.1);
+  transition: box-shadow 0.2s;
+}
+
+.search-bar input[type="text"] {
+  border: none;
+  outline: none;
+  padding: 10px 8px;
+  font-size: 1em;
+  border-radius: 30px;
+  background: transparent;
+  width: 180px;
+  transition: width 0.3s;
+}
+
+.search-bar input[type="text"]:focus {
+  width: 240px;
+}
+
+.search-bar button {
+  background: none;
+  border: none;
+  color: #3a86ff;
+  font-size: 1.3em;
+  cursor: pointer;
+  padding: 0 6px;
+  transition: color 0.2s;
+}
+
+.search-bar button:hover {
+  color: #ffbe0b;
+}
+
+.recipe-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #f1f2f6;
+  margin-bottom: 24px;
+}
+
+.recipe-header h1 {
+  margin: 0;
+  font-size: 2.2em;
+  color: #3a86ff;
+  letter-spacing: 1px;
+}
+
+.recipe-actions a {
+  margin-left: 18px;
+  color: #4361ee;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.recipe-actions a:hover {
+  color: #ffbe0b;
+}
+
+.recipe-section {
+  margin-bottom: 28px;
+}
+
+.recipe-section h2 {
+  color: #22223b;
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  border-left: 4px solid #3a86ff;
+  padding-left: 10px;
+  letter-spacing: 1px;
+}
+
+.recipe-description {
+  font-size: 1.1em;
+  color: #444;
+  background: #f8f9fa;
+  padding: 12px 18px;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(44, 62, 80, 0.04);
+}
+
+.ingredients-list,
+.instructions-list {
+  margin: 0;
+  padding-left: 22px;
+}
+
+.ingredients-list li,
+.instructions-list li {
+  font-size: 1.07em;
+  margin-bottom: 8px;
+  color: #333;
+  background: #f1f2f6;
+  padding: 7px 12px;
+  border-radius: 6px;
+  box-shadow: 0 1px 2px rgba(44, 62, 80, 0.03);
+}
+
+.instructions-list {
+  list-style-type: decimal;
+}
+
+.modern-form .form-group {
+  margin-bottom: 22px;
+  display: flex;
+  flex-direction: column;
+}
+
+.modern-form label {
+  font-weight: 500;
+  color: #3a86ff;
+  margin-bottom: 7px;
+  letter-spacing: 0.5px;
+}
+
+.modern-form input[type="text"],
+.modern-form textarea {
+  border: 1.5px solid #bfc0c0;
+  border-radius: 7px;
+  padding: 12px 14px;
+  font-size: 1em;
+  background: #f8f9fa;
+  transition: border 0.2s, box-shadow 0.2s;
+  resize: vertical;
+  min-height: 40px;
+}
+
+.modern-form textarea {
+  min-height: 80px;
+}
+
+.modern-form input[type="text"]:focus,
+.modern-form textarea:focus {
+  border: 1.5px solid #3a86ff;
+  box-shadow: 0 2px 8px rgba(58, 134, 255, 0.08);
+  outline: none;
+}
+
+.modern-form button[type="submit"] {
+  margin-top: 10px;
+}
+
+.georgia-hero {
+  background: url("/static/images/about%20georgia.jpg") center center/cover
+    no-repeat;
+  min-height: 100vh;
+  padding: 60px 0 40px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.georgia-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(30, 30, 30, 0.65);
+  z-index: 0;
+}
+
+.georgia-hero h1,
+.georgia-bio {
+  position: relative;
+  z-index: 1;
+}
+
+.georgia-hero h1 {
+  color: #fff;
+  font-size: 2.8em;
+  margin-bottom: 32px;
+  letter-spacing: 2px;
+  text-shadow: 0 4px 16px rgba(44, 62, 80, 0.15);
+}
+
+.georgia-bio {
+  background: rgba(255, 255, 255, 0.55);
+  border-radius: 18px;
+  box-shadow: 0 4px 32px rgba(44, 62, 80, 0.1);
+  max-width: 800px;
+  padding: 38px 36px;
+  font-size: 1.25em;
+  color: #22223b;
+  line-height: 1.7;
+  margin: 0 16px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.georgia-bio p {
+  margin-bottom: 22px;
+}
+
+header,
+.site-header {
+  background: #8b0000 !important;
+  color: white !important;
+  padding: 15px 30px !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0 0 12px 12px;
+  margin-bottom: 32px;
+  box-shadow: 0 2px 8px rgba(44, 62, 80, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+header .logo,
+.site-header .logo {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+nav a,
+.nav-center a {
+  color: white !important;
+  text-decoration: none;
+  margin-left: 20px;
+  font-weight: 500;
+  font-size: 1.1em;
+  letter-spacing: 1px;
+  transition: color 0.2s;
+}
+
+nav a:hover,
+.nav-center a:hover {
+  text-decoration: underline;
+  color: #ffbe0b !important;
+}
+
+footer {
+  text-align: center;
+  background: #8b0000 !important;
+  color: white !important;
+  padding: 10px 0;
+  margin-top: 30px;
+}
+
+/* Cards for recipes */
+.recipe-card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  margin-bottom: 20px;
+  transition: transform 0.18s, box-shadow 0.18s;
+}
+.recipe-card:hover {
+  transform: translateY(-3px) scale(1.01);
+  box-shadow: 0 8px 24px rgba(44, 62, 80, 0.18);
+}
+.recipe-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.recipe-card h3 {
+  padding: 10px;
+  margin: 0;
+}
+.recipe-card p {
+  padding: 0 10px 10px;
+}
+
+.aboutus-hero {
+  background: url("/static/images/about%20us.jpg") center center/cover no-repeat;
+  min-height: 100vh;
+  padding: 60px 0 40px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.aboutus-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(30, 30, 30, 0.65);
+  z-index: 0;
+}
+.aboutus-hero h1,
+.aboutus-bio {
+  position: relative;
+  z-index: 1;
+}
+.aboutus-bio {
+  background: rgba(255, 255, 255, 0.55); /* transparent white */
+  border-radius: 18px;
+  box-shadow: 0 4px 32px rgba(44, 62, 80, 0.1);
+  max-width: 800px;
+  padding: 38px 36px;
+  font-size: 1.25em;
+  color: #22223b;
+  line-height: 1.7;
+  margin: 0 16px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.contactus-hero {
+  background: url("/static/images/contact%20us.jpg") center center/cover
+    no-repeat;
+  min-height: 100vh;
+  padding: 60px 0 40px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.contactus-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(30, 30, 30, 0.65); /* dark overlay for readability */
+  z-index: 0;
+}
+.contactus-hero h1,
+.contactus-bio {
+  position: relative;
+  z-index: 1;
+}
+.contactus-bio {
+  background: rgba(255, 255, 255, 0.55); /* transparent white */
+  border-radius: 18px;
+  box-shadow: 0 4px 32px rgba(44, 62, 80, 0.1);
+  max-width: 800px;
+  padding: 38px 36px;
+  font-size: 1.25em;
+  color: #22223b;
+  line-height: 1.7;
+  margin: 0 16px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+/* Responsive hero backgrounds */
+.georgia-hero,
+.aboutus-hero,
+.contactus-hero {
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 0 40px 0;
+  box-sizing: border-box;
+  background-color: #22223b;
+}
+
+
+.contactus-hero {
+  background-image: url("/static/images/contact%20us.jpg");
+}
+
+.georgia-hero::before,
+.aboutus-hero::before,
+.contactus-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(30, 30, 30, 0.65);
+  z-index: 0;
+  border-radius: 0;
+  pointer-events: none;
+}
+
+.georgia-hero h1,
+.georgia-bio,
+.aboutus-hero h1,
+.aboutus-bio,
+.contactus-hero h1,
+.contactus-bio {
+  position: relative;
+  z-index: 1;
+}
+
+/* Responsive for mobile */
+@media (max-width: 700px) {
+  .georgia-hero,
+  .aboutus-hero,
+  .contactus-hero {
+    padding: 30px 0 20px 0;
+    min-height: 70vh;
+  }
+  .georgia-bio,
+  .aboutus-bio,
+  .contactus-bio {
+    padding: 18px 8px;
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 800px) {
+  .container {
+    padding: 18px 8px;
+  }
+  .site-header {
+    flex-direction: column;
+    gap: 12px;
+    padding: 12px 8px;
+  }
+  .nav-center {
+    gap: 18px;
+  }
+  .recipe-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 900px) {
+  .georgia-bio {
+    padding: 22px 10px;
+    font-size: 1.05em;
+  }
+  .georgia-hero h1 {
+    font-size: 2em;
+  }
+}

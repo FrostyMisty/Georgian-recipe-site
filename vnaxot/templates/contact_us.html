@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% load static %}
+    <title>{% block title %}Contact Us{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+  </head>
+  <body>
+    <div class="site-header">
+      <div class="nav-center">
+        <a href="{% url 'about_us' %}">About Us</a>
+        <a href="{% url 'about_georgia' %}">About Georgia</a>
+        <a href="{% url 'contact_us' %}">Contact Us</a>
+      </div>
+      <form class="search-bar" method="get" action="{% url 'recipe_search' %}">
+        <input type="text" name="q" placeholder="Search recipes..." />
+        <button type="submit">&#128269;</button>
+      </form>
+    </div>
+    {% block content %}
+    <div class="contactus-hero">
+      <h1>Contact Us</h1>
+      <div class="contactus-bio">
+        <p>
+          Have questions or feedback? Reach out to us at
+          <a href="mailto:info@recipesite.com">info@recipesite.com</a>.
+        </p>
+      </div>
+    </div>
+    {% endblock %}
+  </body>
+</html>
