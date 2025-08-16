@@ -12,8 +12,9 @@
    python manage.py createsuperuser
    ```
 4. Run the development server:
+   
    ```
-5.   python manage.py runserver
+   python manage.py runserver
    ```
 python manage.py runserver
 ## Static Files
@@ -35,6 +36,7 @@ python manage.py runserver
 
 - **Username:** frosty
 - **Password:** 1234
+
 
 
 
