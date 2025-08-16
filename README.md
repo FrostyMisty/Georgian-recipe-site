@@ -15,7 +15,7 @@
    ```
 5.   python manage.py runserver
    ```
-
+python manage.py runserver
 ## Static Files
 
 - Place images in `static/images/`.
@@ -35,5 +35,6 @@
 
 - **Username:** frosty
 - **Password:** 1234
+
 
 
