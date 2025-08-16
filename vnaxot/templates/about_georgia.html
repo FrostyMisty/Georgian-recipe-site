@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% load static %}
+    <title>About Georgia</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+  </head>
+  <body>
+    <div class="site-header">
+      <div class="logo">🍇 Georgian Recipes</div>
+      <div class="nav-center">
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'about_georgia' %}">About Georgia</a>
+        <a href="{% url 'about_us' %}">About Us</a>
+        <a href="{% url 'contact_us' %}">Contact</a>
+      </div>
+      <form class="search-bar" method="get" action="{% url 'recipe_search' %}">
+        <input type="text" name="q" placeholder="Search recipes..." />
+        <button type="submit">&#128269;</button>
+      </form>
+    </div>
+    {% block content %}
+    <div class="georgia-hero">
+      <h1>About Georgia</h1>
+      <div class="georgia-bio">
+        <p>
+          Georgia, nestled at the crossroads of Europe and Asia, is a country
+          renowned for its breathtaking landscapes, ancient history, and vibrant
+          culture. From the snow-capped peaks of the Caucasus Mountains to the
+          lush vineyards of Kakheti, Georgia’s natural beauty is matched only by
+          the warmth and hospitality of its people.
+        </p>
+        <p>
+          The capital city, Tbilisi, is a tapestry of old and new, where
+          cobblestone streets and centuries-old churches blend seamlessly with
+          modern architecture and lively cafes. Georgia’s history stretches back
+          thousands of years, with archaeological sites, medieval fortresses,
+          and UNESCO World Heritage monuments telling the story of a land shaped
+          by diverse influences and resilient spirit.
+        </p>
+        <p>
+          Georgian cuisine is a celebration of flavor and tradition. Dishes like
+          khachapuri (cheese-filled bread), khinkali (savory dumplings), and
+          aromatic stews are enjoyed alongside world-class wines, produced from
+          some of the oldest grape varieties on earth. Meals are more than just
+          food—they are a time for family, friends, and heartfelt toasts.
+        </p>
+        <p>
+          Music, dance, and art are woven into the fabric of Georgian life.
+          Polyphonic singing, energetic folk dances, and colorful festivals
+          reflect the nation’s joy and creativity. Whether exploring ancient
+          cave cities, hiking through national parks, or sharing a meal with
+          locals, visitors to Georgia are welcomed as honored guests.
+        </p>
+        <p>
+          Discover Georgia—a land where tradition meets innovation, and every
+          journey is an invitation to experience something extraordinary.
+        </p>
+      </div>
+    </div>
+    {% endblock %}
+    <footer>
+      <p>© 2025 Georgian Recipes | Made with ❤️ in Tbilisi</p>
+    </footer>
+  </body>
+</html>

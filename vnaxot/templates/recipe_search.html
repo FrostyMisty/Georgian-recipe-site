@@ -1,0 +1,48 @@
+python manage.py makemigrations python manage.py migrate<!DOCTYPE html>
+<html>
+  <head>
+    {% load static %}
+    <title>Search Recipes</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+  </head>
+  <body>
+    <div class="site-header">
+      <div class="nav-center">
+        <a href="{% url 'home' %}">About Us</a>
+        <a href="#">About Georgia</a>
+        <a href="#">Contact Us</a>
+      </div>
+      <form class="search-bar" method="get" action="{% url 'recipe_search' %}">
+        <input type="text" name="q" placeholder="Search recipes..." />
+        <button type="submit">&#128269;</button>
+      </form>
+    </div>
+    <div class="container">
+      <h1>Search Recipes</h1>
+      <form method="get">
+        <input
+          type="text"
+          name="q"
+          placeholder="Search by title..."
+          value="{{ request.GET.q }}"
+        />
+        <button type="submit" class="add-btn">Search</button>
+      </form>
+      <ul class="recipe-list">
+        {% for recipe in recipes %}
+        <li>
+          <strong
+            ><a href="{% url 'recipe_detail' recipe.pk %}"
+              >{{ recipe.title }}</a
+            ></strong
+          >
+          <p>{{ recipe.description|truncatewords:15 }}</p>
+        </li>
+        {% empty %}
+        <li>No recipes found.</li>
+        {% endfor %}
+      </ul>
+      <a href="{% url 'home' %}">Back to Home</a>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% load static %}
+    <title>Meal Plan</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+  </head>
+  <body>
+    <div class="site-header">
+      <div class="nav-center">
+        <a href="{% url 'home' %}">About Us</a>
+        <a href="#">About Georgia</a>
+        <a href="#">Contact Us</a>
+      </div>
+      <form class="search-bar" method="get" action="{% url 'recipe_search' %}">
+        <input type="text" name="q" placeholder="Search recipes...">
+        <button type="submit">&#128269;</button>
+      </form>
+    </div>
+    {% extends "base.html" %}
+    {% block content %}
+    <h2>Weekly Meal Plan</h2>
+    <table class="meal-plan">
+      <thead><tr><th>Day</th><th>Recipe</th><th>Set</th></tr></thead>
+      <tbody>
+        {% for p in plans %}
+          <tr>
+            <td>{{ p.day }}</td>
+            <td>
+              {% if p.recipe %}
+                <a href="{{ p.recipe.get_absolute_url }}">{{ p.recipe.title }}</a>
+              {% else %}—{% endif %}
+            </td>
+            <td>
+              <form method="post" action="{% url 'your_app:set_meal_plan' p.day %}">
+                {% csrf_token %}
+                <select name="recipe">
+                  <option value="">-- Empty --</option>
+                  {% for r in recipes %}
+                    <option value="{{ r.pk }}" {% if p.recipe and p.recipe.pk == r.pk %}selected{% endif %}>
+                      {{ r.title }}
+                    </option>
+                  {% endfor %}
+                </select>
+                <button type="submit" class="btn">Set</button>
+              </form>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% endblock %}
+    {% block title %}Weekly Meal Plan{% endblock %}
+    {% load static %}
+    {% load i18n %}
+    {% load crispy_forms_tags %}
+    {% load humanize %}
+    {% load static %}
+    {% load i18n %}
+    {% load crispy_forms_tags %}
+    {% load humanize %}
+    {% block title %}Meal Plan{% endblock %}
+    {% block content %}
+  </body>
+</html>
